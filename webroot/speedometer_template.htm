@@ -1,0 +1,60 @@
+<div id="wrapper">
+   <svg width="600" height="600">
+    <g id="meter" style="width: 600px; height: 600px; transform-origin:300px 300px;transform: scale(0.2, 0.2);" >
+      <g style="width:600px; height:600px; transform-origin: 300px 300px;transform:scale(-1, 1) rotate(135deg);">
+       <!-- <circle id="outline_ends" r="250" class="circle outline" 
+        cx="50%" cy="50%"></circle>-->
+
+        <!--outline_curves-->
+        <circle r="250" style="stroke: #94F2B0; stroke-width: 65;fill: blue;"
+        cx="50%" cy="50%" stroke-dasharray="1178 1570"></circle>
+        <!--low-->
+       	<circle r="250" cx="50%" cy="50%" style="fill:none;stroke-width: 60;"
+          stroke-dasharray="785 1570" stroke="#7CCCE5"></circle>
+        <!--average-->
+        <circle r="250" cx="50%" cy="50%" style="fill:none;stroke-width: 60;"
+          stroke-dasharray="392 1570"  stroke="#FDE47F"></circle>
+        <!--high-->
+        <circle r="250" cx="50%" cy="50%" style="fill:none;stroke-width: 60;"
+          stroke-dasharray="196 1570" stroke="#E04644"></circle>
+         
+       	<circle id="mask" r="250" cx="50%" cy="50%"  style="fill: none; stroke: #F1F1F1; stroke-width: 65;"
+	stroke-dasharray="1178 1570"></circle>
+      </g>
+
+      <g id="needle" style="transform-origin:250px 15px; transform:translate(50px,283px) rotate(-45deg)">
+         <path title="hastighetsmätare" coordsize="270 270" style="fill:#ED213C;stroke:#000"
+              d="m0,13 L 267,0 270,15 267,30 0,17 0,13Z" onmouseover="this.style.cursor='hand'"/>
+      </g>
+     <g>
+    </svg>
+    <input id="slider" type="range" min="0" max="200" value="0" />
+    <label id="lbl" id="value" for="">0</label>
+</div>
+<script>
+ 
+/* Bind range slider event*/
+var slider = document.querySelector("#slider");
+var lbl = document.querySelector("#lbl");
+var mask = document.querySelector("#mask");
+var meter_needle =  document.querySelector("#needle");
+
+var cf = 250 * 2 * Math.PI
+var degSlice = cf / 360;
+var maxThrow = 270;
+var maxDash = degSlice * maxThrow;
+var needleTransforms = meter_needle.style.transform;
+ 
+function range_change_event(value) {
+    if (isNaN(value))
+        value = slider.value;
+    var meterVlu = value * (maxThrow / slider.max);
+    //var meter_value = semi_cf - ((percent * semi_cf) / 100);
+    mask.setAttribute("stroke-dasharray", (maxDash - (meterVlu * degSlice)) + "," + cf);
+    meter_needle.style.transform = needleTransforms +" rotate(" + meterVlu + "deg)";
+
+
+    lbl.textContent = value + "km/h";
+}
+slider.addEventListener("input", range_change_event);
+</script>

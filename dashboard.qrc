@@ -1,0 +1,36 @@
+<RCC>
+    <qresource prefix="/">
+        <file>fonts/DejaVuSans.ttf</file>
+        <file>images/fuel-icon.png</file>
+        <file>images/temperature-icon.png</file>
+        <file>qml/dashboard.qml</file>
+        <file>qml/DashboardGaugeStyle.qml</file>
+        <file>qml/IconGaugeStyle.qml</file>
+        <file>qml/TachometerStyle.qml</file>
+        <file>qml/TurnIndicator.qml</file>
+        <file>qml/ValueSource.qml</file>
+        <file>qml/FadeButton.qml</file>
+        <file>turnSignal-OnOff.wav</file>
+        <file>qml/Indicator.qml</file>
+        <file>images/loBeamIndicator.svg</file>
+        <file>images/rearFogLight.svg</file>
+        <file>images/positionLight.svg</file>
+        <file>images/highBeamIndicator.svg</file>
+        <file>images/hazardWarning.svg</file>
+        <file>images/frontFogLight.svg</file>
+        <file>images/defrosterIndicator.svg</file>
+        <file>qml/BlinkLogic.qml</file>
+        <file>turnSignal-On.wav</file>
+        <file>turnSignal-Off.wav</file>
+        <file>horn.wav</file>
+        <file>qml/Terminal.qml</file>
+        <file>qml/DragDialog.qml</file>
+        <file>qml/CanSettings.qml</file>
+        <file>qml/WebSocketSettings.qml</file>
+        <file>qml/Settings.js</file>
+        <file>qml/qmldir</file>
+        <file>qml/Style.qml</file>
+        <file>qml/HeadlightAdjuster.qml</file>
+        <file>qml/GearSelector.qml</file>
+    </qresource>
+</RCC>
